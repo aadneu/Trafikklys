@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trafikklys {
+            border: solid 1px;
+            height: 750px;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            margin: 2px;
+            padding: 2px;
+            background-color: rgb(26, 24, 24);
+
+
+        }
+
+        .trafikklys>div {
+            border: solid 1px;
+            border-radius: 50%;
+            height: 250px;
+            padding: 2px;
+
+
+        }
+
+        .rot {
+            background-color: red;
+        }
+
+        .gelb {
+            background-color: yellow;
+        }
+
+        .gryn {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TRAFIKKLYS</h1>
+    <BR></BR>
+    <button onclick="lys()">RØDT</button>
+    <BUTton onclick="lys2('yellow')">RØDT + GULT</BUTton>
+    <BUTton onclick="lys3('green')">GRØNT</BUTton>
+
+    <button onclick="starlight()">Start</button>
+    <button onclick="reset()">Reset</button>
+
+    <br><br>
+    <div class="trafikklys">
+        <div id="rød"></div>
+        <div id="gul"></div>
+        <div id="grønn"></div>
+
+
+        <script>
+
+            function lys() {
+                document.getElementById('rød').classList.add('rot');
+
+            }
+            function lys2() {
+                document.getElementById('gul').classList.add('gelb');
+                document.getElementById('rød').classList.add('rot');
+            }
+            function lys3() {
+                document.getElementById('rød').classList.remove('rot');
+                document.getElementById('gul').classList.remove('gelb');
+                document.getElementById('grønn').classList.add('gryn');
+            }
+
+            function reset() {
+                document.getElementById('rød').classList.remove('rot');
+                document.getElementById('gul').classList.remove('gelb');
+                document.getElementById('grønn').classList.remove('gryn');
+            }
+
+
+            function starlight() {
+                reset()
+                setTimeout(() => {
+                    lys(() => {
+
+                    });
+                }, 1000);
+                setTimeout(() => {
+                    lys2(() => {
+
+                    });
+                }, 2000);
+                setTimeout(() => {
+                    lys3(() => {
+
+                    });
+                }, 3000);
+
+            }
+
+
+
+        </script>
+
+    </div>
+</body>
+
+</html>
